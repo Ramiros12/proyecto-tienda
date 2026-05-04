@@ -1,0 +1,101 @@
+.main-footer {
+    background-color: #080808;
+    color: #ffffff;
+    padding: 60px 20px 20px;
+    border-top: 1px solid #1a1a1a;
+    margin-top: 80px;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    gap: 40px;
+  }
+  
+  /* Títulos y Textos */
+  .footer-logo { font-size: 1.8rem; font-weight: 900; margin-bottom: 15px; }
+  .footer-logo span { color: #fbff00; }
+  .column-title { 
+    font-size: 0.9rem; 
+    letter-spacing: 2px; 
+    color: #fbff00; 
+    margin-bottom: 25px; 
+    text-transform: uppercase;
+  }
+  
+  .brand-description { color: #888; font-size: 0.9rem; line-height: 1.6; }
+  .small-text { color: #666; font-size: 0.8rem; margin-bottom: 15px; }
+  
+  /* Navegación */
+  .footer-nav { display: flex; flex-direction: column; gap: 12px; }
+  .footer-nav a { 
+    color: #bbb; 
+    text-decoration: none; 
+    font-size: 0.9rem; 
+    transition: color 0.3s ease; 
+  }
+  .footer-nav a:hover { color: #fbff00; }
+  
+  /* Newsletter */
+  .newsletter-box {
+    display: flex;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+  }
+  .newsletter-box input {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 8px;
+    width: 100%;
+  }
+  .newsletter-box input:focus { outline: none; }
+  .btn-send { 
+    background: transparent; 
+    border: none; 
+    color: #fbff00; 
+    font-weight: bold; 
+    cursor: pointer; 
+  }
+  
+  /* Redes Sociales */
+  .social-links { display: flex; gap: 10px; margin-top: 20px; }
+  .social-btn {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.7rem;
+    font-weight: bold;
+    transition: all 0.3s;
+  }
+  .social-btn:hover { 
+    border-color: #fbff00; 
+    color: #fbff00; 
+    background: rgba(251, 255, 0, 0.05);
+  }
+  
+  /* Créditos Finales */
+  .footer-credits {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid #1a1a1a;
+    text-align: center;
+  }
+  .credits-content p { color: #444; font-size: 0.75rem; margin: 5px 0; }
+  .university-info { color: #fbff00 !important; font-weight: 500; }
+  
+  /* Responsive */
+  @media (max-width: 900px) {
+    .footer-container { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 500px) {
+    .footer-container { grid-template-columns: 1fr; }
+  }

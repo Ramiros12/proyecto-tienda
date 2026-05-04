@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Necesario para usar *ngFor y *ngIf en el HTML
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',       // Nombre del componente para usar en HTML: <app-home>
   standalone: true,           // Componente independiente, no necesita NgModule
-  imports: [CommonModule],    // Importamos CommonModule para directivas *ngFor y *ngIf
+  imports: [CommonModule, RouterModule],    // Importamos CommonModule para directivas *ngFor y *ngIf
   templateUrl: './home.component.html',  // Archivo HTML del componente
   styleUrls: ['./home.component.css']    // Archivo CSS del componente
 })

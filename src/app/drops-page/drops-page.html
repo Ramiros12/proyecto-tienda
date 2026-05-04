@@ -1,0 +1,63 @@
+<div class="main-container">
+    <!-- Encabezado con navegación -->
+    <header class="page-header">
+        <!-- Flecha izquierda existente -->
+        <button class="nav-arrow" [routerLink]="prevRoute"> < </button> 
+      
+        <div class="logo-container">
+          <!-- Añadimos el routerLink aquí -->
+          <h2 class="brand-title clickable-logo" routerLink="/">
+            STREET<span>WANE</span>
+          </h2>
+          <p class="section-name">{{ pageTitle }}</p>
+        </div>
+      
+        <!-- Flecha derecha existente -->
+        <button class="nav-arrow" [routerLink]="nextRoute"> > </button>
+      </header>
+  
+    <div class="divider"></div>
+  
+    <p class="subtitle">Explora nuestra colección de ropa urbana</p>
+  
+    <!-- Grid de 4 columnas de la imagen -->
+    <section class="shop-grid">
+      
+      <!-- Categoría: Gorras -->
+      <div class="product-card">
+        <div class="image-box">
+          <img src="assets/gorras.jpg" alt="Gorras">
+        </div>
+        <h3 class="product-title yellow">GORRAS</h3>
+        <button class="btn-action">VER PRODUCTOS</button>
+      </div>
+  
+      <!-- Categoría: Hoodies -->
+      <div class="product-card">
+        <div class="image-box">
+          <img src="assets/hoodies.jpg" alt="Hoodies">
+        </div>
+        <h3 class="product-title cyan">HOODIES</h3>
+        <button class="btn-action">VER PRODUCTOS</button>
+      </div>
+  
+      <!-- Categoría: Camisetas -->
+      <div class="product-card">
+        <div class="image-box">
+          <img src="assets/camisetas.jpg" alt="Camisetas">
+        </div>
+        <h3 class="product-title white">CAMISETAS</h3>
+        <button class="btn-action">VER PRODUCTOS</button>
+      </div>
+  
+      <!-- Categoría: Pantalones -->
+      <div class="product-card">
+        <div class="image-box">
+          <img src="assets/pantalones.jpg" alt="Pantalones">
+        </div>
+        <h3 class="product-title orange">PANTALONES</h3>
+        <button class="btn-action">VER PRODUCTOS</button>
+      </div>
+  
+    </section>
+  </div>

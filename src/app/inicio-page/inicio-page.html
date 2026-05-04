@@ -1,0 +1,57 @@
+<div class="main-container">
+    <!-- Encabezado con flechas de navegación -->
+    <header class="page-header">
+        <!-- Flecha izquierda existente -->
+        <button class="nav-arrow" [routerLink]="prevRoute"> < </button> 
+      
+        <div class="logo-container">
+          <!-- Añadimos el routerLink aquí -->
+          <h2 class="brand-title clickable-logo" routerLink="/">
+            STREET<span>WANE</span>
+          </h2>
+          <p class="section-name">{{ pageTitle }}</p>
+        </div>
+      
+        <!-- Flecha derecha existente -->
+        <button class="nav-arrow" [routerLink]="nextRoute"> > </button>
+      </header>
+  
+    <div class="divider"></div>
+  
+    <!-- Contenedor de las 4 tarjetas -->
+    <section class="cards-grid">
+      
+      <div class="card">
+        <div class="card-icon">⭐</div>
+        <h3 class="card-title yellow">DESTACADOS</h3>
+        <p class="card-text">Lo más llamativo y actual en la moda</p>
+        <button class="btn-more">MÁS INFO</button>
+        <div class="arrow-down">∨</div>
+      </div>
+  
+      <div class="card">
+        <div class="card-icon">👕</div>
+        <h3 class="card-title cyan">NUEVA COLECCIÓN</h3>
+        <p class="card-text">Conjuntos de ropa que te harán ver aun mejor que ahora</p>
+        <button class="btn-more">MÁS INFO</button>
+        <div class="arrow-down">∨</div>
+      </div>
+  
+      <div class="card">
+        <div class="card-icon">🛍️</div>
+        <h3 class="card-title orange">PROMOCIONES</h3>
+        <p class="card-text">La mejor ropa con las 3 B: <br> • Bueno • Bonito • Barato</p>
+        <button class="btn-more">MÁS INFO</button>
+        <div class="arrow-down">∨</div>
+      </div>
+  
+      <div class="card">
+        <div class="card-icon">🔔</div>
+        <h3 class="card-title blue">SUSCRIPCIÓN</h3>
+        <p class="card-text">Si quieres estar al tanto de este mundo suscríbete para que te lleguen mensajes</p>
+        <button class="btn-more">MÁS INFO</button>
+        <div class="arrow-down">∨</div>
+      </div>
+  
+    </section>
+  </div>

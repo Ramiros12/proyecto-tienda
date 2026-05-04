@@ -1,0 +1,115 @@
+.main-container {
+    min-height: 100vh;
+    background-color: #050505;
+    color: white;
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Header Reutilizable */
+  .page-header { display: flex; justify-content: space-between; align-items: center; }
+  .brand-title { font-size: 2rem; font-weight: 900; }
+  .brand-title span { color: #fbff00; }
+  .section-name { text-align: center; color: #fbff00; font-weight: bold; margin-top: -5px; }
+  
+  .nav-arrow {
+    background: #1a1a1a;
+    border: 1px solid #fbff00;
+    color: #fbff00;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  .divider { border-bottom: 1px dashed #333; margin: 20px 0 10px 0; }
+  
+  .subtitle {
+    text-align: center;
+    color: #ccc;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+  }
+  
+  /* Grid de la Tienda */
+  .shop-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas exactas */
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .product-card {
+    border: 1px solid #222;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  
+  .product-card:hover {
+    border-color: #fbff00;
+    transform: translateY(-5px);
+  }
+  
+  .image-box {
+    width: 100%;
+    height: 250px;
+    background: #111;
+    margin-bottom: 15px;
+    overflow: hidden;
+    border: 1px solid #333;
+  }
+  
+  .image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .product-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+  }
+  
+  /* Colores de títulos según la imagen */
+  .yellow { color: #fbff00; }
+  .cyan { color: #00f2ff; }
+  .white { color: #ffffff; }
+  .orange { color: #ff8000; }
+  
+  .btn-action {
+    background: linear-gradient(to bottom, #f7ff00, #b8bd00);
+    color: black;
+    border: none;
+    padding: 10px 0;
+    width: 100%;
+    font-weight: 900;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  
+  .btn-action:hover {
+    background: #fbff00;
+  }
+  
+  /* Responsive para pantallas pequeñas */
+  @media (max-width: 900px) {
+    .shop-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .clickable-logo {
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    user-select: none;
+  }
+  
+  .clickable-logo:hover {
+    opacity: 0.8;
+    transform: scale(1.02); /* Un ligero pulso al pasar el mouse */
+  }
+  
+  .clickable-logo:active {
+    transform: scale(0.98); /* Efecto de clic */
+  }

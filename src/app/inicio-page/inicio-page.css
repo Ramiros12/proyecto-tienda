@@ -1,0 +1,131 @@
+.main-container {
+    min-height: 100vh;
+    background-color: #050505; /* Negro profundo de la 2da imagen */
+    color: white;
+    padding: 20px;
+    font-family: 'Inter', sans-serif; /* O la fuente que uses en tu proyecto */
+  }
+  
+  /* Header con flechas */
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .brand-title {
+    font-size: 2rem;
+    font-weight: 900;
+    margin: 0;
+    letter-spacing: -1px;
+  }
+  
+  .brand-title span {
+    color: #fbff00; /* Amarillo neón de la 2da imagen */
+  }
+  
+  .section-name {
+    text-align: center;
+    color: #fbff00;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: -5px;
+  }
+  
+  .nav-arrow {
+    background: #1a1a1a;
+    border: 1px solid #fbff00;
+    color: #fbff00;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .nav-arrow:hover {
+    background: #fbff00;
+    color: black;
+  }
+  
+  .divider {
+    border-bottom: 1px dashed #333;
+    margin: 20px 0 40px 0;
+  }
+  
+  /* Grid de tarjetas */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid #222;
+    padding: 30px 15px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    border-color: #fbff00;
+  }
+  
+  .card-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+  
+  /* Colores de títulos */
+  .yellow { color: #fbff00; }
+  .cyan { color: #00f2ff; }
+  .orange { color: #ff9d00; }
+  .blue { color: #007bff; }
+  
+  .card-text {
+    font-size: 0.9rem;
+    color: #aaa;
+    line-height: 1.4;
+    height: 60px;
+  }
+  
+  .btn-more {
+    background: #fbff00;
+    color: black;
+    border: none;
+    padding: 8px 25px;
+    font-weight: 900;
+    margin-top: 20px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .arrow-down {
+    margin-top: 10px;
+    color: #444;
+  }
+
+  .clickable-logo {
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    user-select: none;
+  }
+  
+  .clickable-logo:hover {
+    opacity: 0.8;
+    transform: scale(1.02); /* Un ligero pulso al pasar el mouse */
+  }
+  
+  .clickable-logo:active {
+    transform: scale(0.98); /* Efecto de clic */
+  }
