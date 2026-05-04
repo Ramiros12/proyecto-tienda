@@ -1,0 +1,260 @@
+html <!-- ============================================================
+HOME COMPONENT — StreetWane
+Este archivo contiene la estructura visual (template) del Home.
+Usa directivas de Angular como *ngFor, *ngIf y [class] para
+mostrar datos dinámicos desde el archivo home.component.ts
+============================================================ -->
+
+
+<!-- ══════════════════════════════════════════
+NAVBAR — Barra de navegación fija
+Siempre visible en la parte superior.
+Contiene: logo, links y botones de acción.
+══════════════════════════════════════════ -->
+<nav class="navbar">
+<!-- Logo de la marca -->
+<div class="nav-logo">STREET<span>WANE</span></div>
+
+<!-- Links de navegación -->
+<ul class="nav-links">
+<li><a href="#">INICIO</a></li>
+<li><a href="#">COLECCIONES</a></li>
+<li><a href="#">DROPS</a></li>
+<li><a href="#">NOSOTROS</a></li>
+</ul>
+
+<!-- Botones de búsqueda y carrito -->
+<div class="nav-actions">
+<button class="icon-btn">🔍</button>
+<!-- cart-count muestra el número de productos en el carrito -->
+<button class="icon-btn">🛒 <span class="cart-count">0</span></button>
+</div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+TICKER — Barra informativa estática
+Muestra mensajes promocionales bajo la navbar.
+Es estático (no se mueve), diseño tipo etiqueta urbana.
+══════════════════════════════════════════ -->
+<div class="ticker-wrap">
+<span>★ STREETWEAR COLOMBIANO</span>
+<span>★ NUEVA COLECCIÓN SS25</span>
+<span>★ EDICIÓN LIMITADA</span>
+<span>★ ENVÍO GRATIS +$150K</span>
+<span>★ CALIDAD PREMIUM</span>
+<span>★ DROP 001 DISPONIBLE</span>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+HERO — Sección principal (banner)
+Primera sección que ve el usuario al entrar.
+Tiene: texto grande, subtítulo, botones CTA e imagen.
+══════════════════════════════════════════ -->
+<section class="hero">
+
+<!-- Texto de fondo decorativo tipo graffiti (efecto visual) -->
+<div class="hero-bg-text">STREET</div>
+
+<!-- Contenido textual del hero -->
+<div class="hero-content">
+<!-- Etiqueta pequeña tipo código -->
+<p class="hero-tag">// DROP 001 — 2025</p>
+
+<!-- Título principal dividido en 4 líneas con estilos distintos:
+    l1 = texto blanco normal
+    l2 = texto outline (solo borde amarillo, sin relleno)
+    l3 = texto blanco en itálica
+    l4 = texto amarillo con glow -->
+<h1 class="hero-title">
+ <span class="line l1">NO</span>
+ <span class="line l2">RULES</span>
+ <span class="line l3">JUST</span>
+ <span class="line l4">STREET</span>
+</h1>
+
+<p class="hero-sub">Ropa para los que no piden permiso.</p>
+
+<!-- Botones de llamada a la acción (CTA) -->
+<div class="hero-cta">
+ <a href="#" class="btn-primary">VER COLECCIÓN</a>
+ <a href="#" class="btn-ghost">NUEVO DROP →</a>
+</div>
+</div>
+
+<!-- Imagen/visual del lado derecho del hero -->
+<div class="hero-visual">
+<div class="hero-img-box">
+ <!-- Placeholder donde va la foto del producto principal -->
+ <div class="img-placeholder"><span>LOOKBOOK</span></div>
+ <!-- Badge "NEW" en esquina de la imagen -->
+ <div class="img-badge">NEW</div>
+</div>
+
+<!-- Tags flotantes animados alrededor de la imagen -->
+<div class="floating-tag tag1">URBAN</div>
+<div class="floating-tag tag2">COL 🇨🇴</div>
+<div class="floating-tag tag3">SS25</div>
+</div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+CATEGORÍAS — Grid de colecciones
+Muestra las 4 categorías de la tienda.
+*ngFor recorre el array 'categories' del .ts
+y crea una tarjeta por cada categoría.
+══════════════════════════════════════════ -->
+<section class="categories">
+<div class="section-header">
+<h2>COLECCIONES<span class="dot">.</span></h2>
+<a href="#" class="see-all">VER TODO →</a>
+</div>
+
+<div class="cat-grid">
+<!-- *ngFor: Angular repite este div por cada categoría en el array -->
+<div class="cat-card" *ngFor="let cat of categories">
+ <div class="cat-img">
+   <!-- {{ cat.icon }} muestra el emoji de cada categoría -->
+   <span class="cat-emoji">{{ cat.icon }}</span>
+   <div class="cat-glow"></div> <!-- Efecto de brillo en hover -->
+ </div>
+ <div class="cat-info">
+   <h3>{{ cat.name }}</h3>       <!-- Nombre de la categoría -->
+   <p>{{ cat.count }} PRODUCTOS</p> <!-- Cantidad de productos -->
+ </div>
+</div>
+</div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+PRODUCTOS — Sección trending
+Muestra los productos con filtros interactivos.
+Los filtros llaman a setFilter() del .ts para
+actualizar la lista de productos visible.
+══════════════════════════════════════════ -->
+<section class="products">
+<div class="section-header">
+<h2>TRENDING<span class="dot">.</span></h2>
+
+<!-- Botones de filtro generados dinámicamente desde el array 'filters' -->
+<div class="filter-tabs">
+ <button
+   *ngFor="let tab of filters"
+   class="filter-btn"
+   [class.active]="activeFilter === tab" 
+   (click)="setFilter(tab)">              <!-- Al hacer clic llama a setFilter() en el .ts -->
+   {{ tab }}
+ </button>
+</div>
+</div>
+
+<!-- Grid de productos: muestra 'filteredProducts' (cambia con el filtro) -->
+<div class="products-grid">
+<div class="product-card" *ngFor="let product of filteredProducts">
+ <div class="product-img">
+   <span class="product-emoji">{{ product.icon }}</span>
+
+   <!-- Overlay con botón "Añadir" que aparece al hacer hover -->
+   <div class="product-overlay">
+     <button class="add-btn">+ AÑADIR</button>
+   </div>
+
+   <!-- *ngIf: solo muestra el badge si el producto tiene uno (no es null) -->
+   <span class="product-badge" *ngIf="product.badge">{{ product.badge }}</span>
+ </div>
+
+ <div class="product-info">
+   <p class="product-brand">STREETWANE ®</p>
+   <h4 class="product-name">{{ product.name }}</h4>
+   <div class="product-price">
+     <span class="price">${{ product.price }}</span>
+     <!-- Solo muestra precio anterior si existe (productos en descuento) -->
+     <span class="old-price" *ngIf="product.oldPrice">${{ product.oldPrice }}</span>
+   </div>
+ </div>
+</div>
+</div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+DROP BANNER — Próxima colección
+Muestra información del próximo lanzamiento
+con un countdown en tiempo real.
+El countdown se actualiza desde ngOnInit() en el .ts
+══════════════════════════════════════════ -->
+<section class="drop-banner">
+<!-- Texto de fondo decorativo -->
+<div class="drop-bg-text">DROP</div>
+
+<div class="drop-content">
+<p class="drop-label">⚡ PRÓXIMO DROP</p>
+<h2>COLECCIÓN<br><span>SHADOW</span><br>VERANO 2025</h2>
+
+<!-- Countdown: *ngFor recorre el array 'countdown' del .ts
+    que se actualiza cada segundo con setInterval() -->
+<div class="countdown">
+ <div class="count-item" *ngFor="let t of countdown">
+   <span class="count-num">{{ t.value }}</span>   <!-- Número (ej: 05) -->
+   <span class="count-label">{{ t.label }}</span> <!-- Etiqueta (ej: DÍAS) -->
+ </div>
+</div>
+
+<a href="#" class="btn-primary">NOTIFÍCAME</a>
+</div>
+
+<!-- Elemento visual decorativo (círculo girando) -->
+<div class="drop-visual">
+<div class="drop-circle">
+ <span>SHADOW</span>
+</div>
+</div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+FOOTER — Pie de página
+Contiene: logo, descripción, redes sociales
+y links de navegación organizados en grupos.
+══════════════════════════════════════════ -->
+<footer class="footer">
+<div class="footer-top">
+
+<!-- Columna izquierda: marca y redes -->
+<div class="footer-brand">
+ <div class="nav-logo">STREET<span>WANE</span></div>
+ <p>La calle es nuestro runway.</p>
+ <!-- Links a redes sociales -->
+ <div class="socials">
+   <a href="#">IG</a>
+   <a href="#">TK</a>
+   <a href="#">TW</a>
+ </div>
+</div>
+
+<!-- Columna derecha: links de navegación -->
+<div class="footer-links">
+ <div class="link-group">
+   <h5>TIENDA</h5>
+   <a href="#">Colecciones</a>
+   <a href="#">Drops</a>
+   <a href="#">Sale</a>
+ </div>
+ <div class="link-group">
+   <h5>INFO</h5>
+   <a href="#">Nosotros</a>
+   <a href="#">Contacto</a>
+   <a href="#">FAQ</a>
+ </div>
+</div>
+</div>
+
+<!-- Barra inferior del footer con copyright -->
+<div class="footer-bottom">
+<p>© 2025 StreetWane. Todos los derechos reservados.</p>
+<p class="footer-made">Hecho en 🇨🇴</p>
+</div>
+</footer>
