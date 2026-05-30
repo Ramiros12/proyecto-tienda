@@ -1,0 +1,171 @@
+.anteriores-container {
+    background: #0a0a0a;
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Header */
+  .detalle-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+  .back-btn {
+    background: transparent;
+    border: 1px solid #f5c518;
+    color: #f5c518;
+    padding: 0.5rem 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+  }
+  .back-btn:hover { background: #f5c518; color: #000; }
+  .header-center { text-align: center; }
+  .header-tag { color: #888; font-size: 0.75rem; letter-spacing: 3px; margin-bottom: 0.3rem; }
+  .header-center h1 { font-size: 2rem; color: #fff; font-weight: 900; letter-spacing: 4px; margin: 0; }
+  .header-center h1 span { color: #f5c518; }
+  .header-count { color: #555; font-size: 0.8rem; letter-spacing: 2px; }
+  .divider { border: none; border-top: 1px solid #222; margin: 1.5rem 0; }
+  
+  /* Carrusel */
+  .carrusel-section {
+    position: relative;
+    height: 480px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+  
+  .carrusel-track { position: relative; width: 100%; height: 100%; }
+  
+  .carrusel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+  .carrusel-slide.activo { opacity: 1; pointer-events: all; }
+  
+  .car-img { width: 100%; height: 100%; object-fit: cover; }
+  
+  .car-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.85) 40%, transparent);
+  }
+  
+  .car-content {
+    position: absolute;
+    top: 50%;
+    left: 3rem;
+    transform: translateY(-50%);
+  }
+  .car-tag { font-size: 0.75rem; letter-spacing: 3px; margin-bottom: 0.5rem; }
+  .car-titulo { font-size: 2.5rem; color: #fff; font-weight: 900; letter-spacing: 3px; margin: 0 0 1rem; }
+  .car-desc { color: #bbb; font-size: 0.9rem; max-width: 380px; line-height: 1.6; }
+  
+  .car-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid #333;
+    color: #fff;
+    width: 48px; height: 48px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .car-btn:hover { background: #f5c518; color: #000; border-color: #f5c518; }
+  .car-btn.prev { left: 1rem; }
+  .car-btn.next { right: 1rem; }
+  
+  .car-dots {
+    position: absolute;
+    bottom: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+  }
+  .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: #444;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .dot.activo { background: #f5c518; transform: scale(1.3); }
+  
+  /* Colores */
+  .color-cyan { color: #00e5ff; }
+  .color-yellow { color: #f5c518; }
+  .color-white { color: #ffffff; }
+  .color-orange { color: #ff6b35; }
+  
+  /* Cards conjuntos */
+  .conjuntos-section { padding-top: 1rem; }
+  .section-label { color: #555; font-size: 0.75rem; letter-spacing: 3px; margin-bottom: 0.4rem; }
+  .section-titulo { color: #fff; font-size: 1.8rem; font-weight: 900; letter-spacing: 4px; margin-bottom: 2rem; }
+  .section-titulo span { color: #f5c518; }
+  
+  .conjuntos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .conjunto-card {
+    background: #111;
+    border: 1px solid #1e1e1e;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .conjunto-card:hover,
+  .conjunto-card.destacado { border-color: #f5c518; transform: translateY(-4px); }
+  
+  .conjunto-img-wrap { position: relative; aspect-ratio: 3/4; overflow: hidden; }
+  .conjunto-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+  .conjunto-card:hover .conjunto-img { transform: scale(1.05); }
+  .conjunto-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 30%, transparent);
+  }
+  .conjunto-temporada {
+    position: absolute;
+    bottom: 0.8rem; left: 0.8rem;
+    font-size: 0.65rem; font-weight: 900; letter-spacing: 2px;
+  }
+  
+  .conjunto-info { padding: 1rem; }
+  .conjunto-nombre { color: #fff; font-size: 0.85rem; font-weight: 900; letter-spacing: 2px; margin: 0 0 0.8rem; }
+  
+  .conjunto-prendas { list-style: none; padding: 0; margin: 0 0 1rem; }
+  .conjunto-prendas li {
+    color: #777;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    padding: 0.2rem 0;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  
+  .ver-btn {
+    background: transparent;
+    border: 1px solid #f5c518;
+    color: #f5c518;
+    padding: 0.4rem 1rem;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.2s;
+  }
+  .ver-btn:hover { background: #f5c518; color: #000; }

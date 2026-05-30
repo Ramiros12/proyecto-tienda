@@ -1,0 +1,335 @@
+/* ── Base ── */
+.detalle-container {
+    background: #050505;
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* ── Fondo decorativo ── */
+  .bg-deco { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+  .deco-word {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.018);
+    letter-spacing: 12px;
+    white-space: nowrap;
+    user-select: none;
+  }
+  .deco-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(251,255,0,0.04);
+  }
+  .c1 { width: 400px; height: 400px; top: -120px; right: -120px; }
+  .c2 { width: 250px; height: 250px; bottom: 60px; left: -80px; }
+  .deco-line {
+    position: absolute;
+    width: 1px; height: 70%;
+    top: 15%; left: 50%;
+    background: rgba(255,255,255,0.03);
+  }
+  
+  /* ── Header ── */
+  .detalle-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .back-btn {
+    background: transparent;
+    border: 1px solid #2a2a2a;
+    color: #fbff00;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 900;
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    transition: all 0.2s;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+  .back-btn:hover { background: rgba(251,255,0,0.08); border-color: #fbff00; }
+  
+  .header-center { text-align: center; }
+  .header-tag { color: #444; font-size: 0.7rem; letter-spacing: 3px; margin-bottom: 4px; }
+  .header-titulo {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 6px;
+    margin: 0 0 4px;
+    text-shadow: 0 0 40px currentColor;
+  }
+  .header-sub { color: #444; font-size: 0.7rem; letter-spacing: 3px; }
+  
+  .drop-pill {
+    border: 1px solid #2a2a2a;
+    color: #fbff00;
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    padding: 6px 14px;
+    background: rgba(251,255,0,0.04);
+  }
+  
+  /* ── Divider ── */
+  .divider {
+    border: none;
+    border-top: 1px solid #1a1a1a;
+    margin: 0 0 2rem;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+  }
+  .divider-tag {
+    position: absolute;
+    top: -10px;
+    background: #050505;
+    color: #333;
+    font-size: 0.62rem;
+    letter-spacing: 4px;
+    padding: 0 12px;
+  }
+  
+  /* ── Grid ── */
+  .prendas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* ── Card ── */
+  .prenda-card {
+    background: #0d0d0d;
+    border: 1px solid #1a1a1a;
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  }
+  .prenda-card:hover {
+    border-color: #2a2a2a;
+    transform: translateY(-6px);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+  }
+  
+  .model-number {
+    position: absolute;
+    top: -1px; left: -1px;
+    background: #111;
+    border: 1px solid #1e1e1e;
+    color: #333;
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    padding: 4px 10px;
+    z-index: 2;
+  }
+  
+  /* ── Imagen ── */
+  .prenda-img-wrap {
+    position: relative;
+    height: 420px;
+    overflow: hidden;
+  }
+  .prenda-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.4s;
+  }
+  .prenda-card:hover .prenda-img {
+    transform: scale(1.06);
+    filter: brightness(0.25);
+  }
+  
+  .prenda-badge {
+    position: absolute;
+    top: 14px; right: 14px;
+    color: #000;
+    font-size: 0.62rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    padding: 4px 10px;
+    z-index: 3;
+    transition: opacity 0.3s;
+  }
+  .prenda-card:hover .prenda-badge { opacity: 0; }
+  
+  /* ── Specs overlay ── */
+  .specs-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 4;
+  }
+  .prenda-card:hover .specs-overlay { opacity: 1; }
+  
+  .specs-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .specs-titulo {
+    color: #555;
+    font-size: 0.6rem;
+    letter-spacing: 4px;
+    margin-bottom: 4px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #1e1e1e;
+  }
+  
+  .spec-row {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .spec-label {
+    color: #444;
+    font-size: 0.58rem;
+    letter-spacing: 3px;
+  }
+  .spec-val {
+    color: #ddd;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  
+  .tallas-wrap, .colores-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 3px;
+  }
+  .talla-chip {
+    border: 1px solid #2a2a2a;
+    color: #aaa;
+    font-size: 0.6rem;
+    font-weight: 900;
+    padding: 3px 8px;
+    letter-spacing: 1px;
+    transition: border-color 0.2s;
+  }
+  .talla-chip:hover { border-color: #fbff00; color: #fbff00; }
+  
+  .color-chip {
+    color: #777;
+    font-size: 0.62rem;
+    letter-spacing: 0.5px;
+    padding: 2px 0;
+  }
+  .color-chip:not(:last-child)::after { content: ' /'; color: #333; }
+  
+  .spec-desc {
+    color: #555;
+    font-size: 0.68rem;
+    line-height: 1.6;
+    padding-top: 4px;
+    border-top: 1px solid #1a1a1a;
+  }
+  
+  .add-btn {
+    color: #000;
+    border: none;
+    padding: 10px;
+    font-weight: 900;
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 4px;
+    transition: opacity 0.2s, transform 0.2s;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  }
+  .add-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+  
+  /* ── Info inferior ── */
+  .prenda-info { padding: 1.2rem; }
+  
+  .prenda-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+  .prenda-brand { color: #333; font-size: 0.62rem; letter-spacing: 2px; }
+  .prenda-genero-tag {
+    color: #444;
+    font-size: 0.58rem;
+    letter-spacing: 1px;
+    border: 1px solid #1e1e1e;
+    padding: 2px 8px;
+  }
+  
+  .prenda-nombre {
+    color: #e0e0e0;
+    font-size: 0.95rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin: 0 0 10px;
+  }
+  
+  .prenda-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .prenda-precio { font-weight: 900; font-size: 1.1rem; }
+  .tallas-mini { display: flex; gap: 4px; }
+  .talla-mini {
+    color: #333;
+    font-size: 0.58rem;
+    letter-spacing: 1px;
+    border: 1px solid #1a1a1a;
+    padding: 2px 5px;
+  }
+  
+  /* ── Nav categorías ── */
+  .cat-nav {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid #111;
+  }
+  .cat-nav-label { color: #333; font-size: 0.62rem; letter-spacing: 4px; margin-bottom: 1rem; }
+  
+  .cat-nav-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  
+  .cat-btn {
+    background: transparent;
+    border: 1px solid #1e1e1e;
+    color: #444;
+    padding: 10px 24px;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: all 0.2s;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  }
+  .cat-btn:hover { border-color: #fbff00; color: #fbff00; }
+  .cat-btn.active {
+    background: #fbff00;
+    border-color: #fbff00;
+    color: #000;
+  }

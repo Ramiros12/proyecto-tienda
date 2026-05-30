@@ -1,86 +1,152 @@
-<!-- ══════════════════════════════════════════
-NAVBAR — Barra de navegación fija
-══════════════════════════════════════════ -->
 <nav class="navbar">
-  <div class="nav-logo">STREET<span>WANE</span></div>
-
+  <div class="nav-logo" routerLink="/">STREET<span>WANE</span></div>
   <ul class="nav-links">
-    <!-- Se cambia href="#" por routerLink para navegación SPA -->
-    <li><a routerLink="/inicio">INICIO</a></li>
-    <li><a routerLink="/colecciones">COLECCIONES</a></li>
-    <li><a routerLink="/drops">DROPS</a></li>
-    <li><a routerLink="/nosotros">NOSOTROS</a></li>
+    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">INICIO</a></li>
+    <li><a routerLink="/colecciones" routerLinkActive="active">COLECCIONES</a></li>
+    <li><a routerLink="/drops" routerLinkActive="active">DROPS</a></li>
+    <li><a routerLink="/nosotros" routerLinkActive="active">NOSOTROS</a></li>
   </ul>
-
   <div class="nav-actions">
-    <button class="icon-btn">🔍</button>
-    <button class="icon-btn">🛒 <span class="cart-count">0</span></button>
+    <!-- botones igual que antes -->
   </div>
 </nav>
 
-<!-- ══════════════════════════════════════════
-TICKER — Barra informativa estática
-══════════════════════════════════════════ -->
 <div class="ticker-wrap">
-  <span>★ STREETWEAR COLOMBIANO</span>
-  <span>★ NUEVA COLECCIÓN SS25</span>
-  <span>★ EDICIÓN LIMITADA</span>
-  <span>★ ENVÍO GRATIS +$150K</span>
-  <span>★ CALIDAD PREMIUM</span>
-  <span>★ DROP 001 DISPONIBLE</span>
+  <div class="ticker-inner">
+    <span>★ STREETWEAR COLOMBIANO</span>
+    <span>★ NUEVA COLECCIÓN SS25</span>
+    <span>★ EDICIÓN LIMITADA</span>
+    <span>★ ENVÍO GRATIS +$150K</span>
+    <span>★ CALIDAD PREMIUM</span>
+    <span>★ DROP 001 DISPONIBLE</span>
+    <span>★ STREETWEAR COLOMBIANO</span>
+    <span>★ NUEVA COLECCIÓN SS25</span>
+    <span>★ EDICIÓN LIMITADA</span>
+    <span>★ ENVÍO GRATIS +$150K</span>
+  </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-HERO — Sección principal (banner)
-══════════════════════════════════════════ -->
-<section class="hero">
-  <div class="hero-bg-text">STREET</div>
+<section class="carousel-section">
+  <div class="carousel-container" #carouselRef>
 
-  <div class="hero-content">
-    <p class="hero-tag">// DROP 001 — 2025</p>
-
-    <h1 class="hero-title">
-      <span class="line l1">NO</span>
-      <span class="line l2">RULES</span>
-      <span class="line l3">JUST</span>
-      <span class="line l4">STREET</span>
-    </h1>
-
-    <p class="hero-sub">Ropa para los que no piden permiso.</p>
-
-    <div class="hero-cta">
-      <!-- Botones de acción también dirigidos a rutas específicas -->
-      <a routerLink="/colecciones" class="btn-primary">VER COLECCIÓN</a>
-      <a routerLink="/drops" class="btn-ghost">NUEVO DROP →</a>
+    <!-- Slide 1 -->
+    <div class="carousel-slide active">
+      <img
+        src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=1400&q=80"
+        alt="Urban Hoodie Drop 001"
+        class="carousel-img" />
+      <div class="carousel-overlay"></div>
+      <div class="carousel-content">
+        <p class="carousel-tag">// DROP 001 — 2025</p>
+        <h1 class="carousel-title">
+          <span class="line l1">NO</span>
+          <span class="line l2">RULES</span>
+          <span class="line l3">JUST</span>
+          <span class="line l4">STREET</span>
+        </h1>
+        <p class="carousel-sub">Ropa para los que no piden permiso.</p>
+        <div class="carousel-cta">
+          <a href="#" class="btn-primary">VER COLECCIÓN</a>
+          <a href="#" class="btn-ghost">NUEVO DROP →</a>
+        </div>
+      </div>
+      <div class="floating-tag tag1">URBAN</div>
+      <div class="floating-tag tag2">COL 🇨🇴</div>
+      <div class="floating-tag tag3">SS25</div>
     </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-slide">
+      <img
+        src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=1400&q=80"
+        alt="Street Collection"
+        class="carousel-img" />
+      <div class="carousel-overlay"></div>
+      <div class="carousel-content">
+        <p class="carousel-tag">// COLECCIÓN SHADOW</p>
+        <h1 class="carousel-title">
+          <span class="line l1">OWN</span>
+          <span class="line l2">THE</span>
+          <span class="line l3">DARK</span>
+          <span class="line l4">SIDE</span>
+        </h1>
+        <p class="carousel-sub">La oscuridad es nuestra estética.</p>
+        <div class="carousel-cta">
+          <a href="#" class="btn-primary">EXPLORAR</a>
+          <a href="#" class="btn-ghost">VER LOOKBOOK →</a>
+        </div>
+      </div>
+      <div class="floating-tag tag1">DARK</div>
+      <div class="floating-tag tag2">LIMITED</div>
+      <div class="floating-tag tag3">NEW</div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-slide">
+      <img
+        src="https://images.unsplash.com/photo-1529720317453-c8da503f2051?w=1400&q=80"
+        alt="Urban Streetwear"
+        class="carousel-img" />
+      <div class="carousel-overlay"></div>
+      <div class="carousel-content">
+        <p class="carousel-tag">// ACCESORIOS & CAPS</p>
+        <h1 class="carousel-title">
+          <span class="line l1">TOP</span>
+          <span class="line l2">TO</span>
+          <span class="line l3">BOTTOM</span>
+          <span class="line l4">HEAT</span>
+        </h1>
+        <p class="carousel-sub">Completa el look de calle.</p>
+        <div class="carousel-cta">
+          <a href="#" class="btn-primary">VER ACCESORIOS</a>
+          <a href="#" class="btn-ghost">DROPS →</a>
+        </div>
+      </div>
+      <div class="floating-tag tag1">FIRE</div>
+      <div class="floating-tag tag2">EXCLUSIVE</div>
+      <div class="floating-tag tag3">COL 🇨🇴</div>
+    </div>
+
   </div>
 
-  <div class="hero-visual">
-    <div class="hero-img-box">
-      <div class="img-placeholder"><span>LOOKBOOK</span></div>
-      <div class="img-badge">NEW</div>
-    </div>
+  <!-- Controles del carrusel -->
+  <button class="carousel-btn prev" (click)="prevSlide()">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+  </button>
+  <button class="carousel-btn next" (click)="nextSlide()">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+  </button>
 
-    <div class="floating-tag tag1">URBAN</div>
-    <div class="floating-tag tag2">COL 🇨🇴</div>
-    <div class="floating-tag tag3">SS25</div>
+  <!-- Indicadores (dots) -->
+  <div class="carousel-dots">
+    <button class="dot active" (click)="goToSlide(0)"></button>
+    <button class="dot" (click)="goToSlide(1)"></button>
+    <button class="dot" (click)="goToSlide(2)"></button>
+  </div>
+
+  <!-- Barra de progreso -->
+  <div class="carousel-progress">
+    <div class="progress-bar" [style.width.%]="progressWidth"></div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-CATEGORÍAS — Grid de colecciones
-══════════════════════════════════════════ -->
 <section class="categories">
   <div class="section-header">
-    <h2>COLECCIONES<span class="dot">.</span></h2>
-    <a routerLink="/colecciones" class="see-all">VER TODO →</a>
+    <div class="section-title-group">
+      <p class="section-label">// EXPLORA</p>
+      <h2>COLECCIONES<span class="dot">.</span></h2>
+    </div>
+    <a href="#" class="see-all">VER TODO →</a>
   </div>
 
   <div class="cat-grid">
     <div class="cat-card" *ngFor="let cat of categories">
       <div class="cat-img">
-        <span class="cat-emoji">{{ cat.icon }}</span>
+        <img [src]="cat.image" [alt]="cat.name" class="cat-photo" />
         <div class="cat-glow"></div>
+        <div class="cat-overlay">
+          <span class="cat-explore">EXPLORAR →</span>
+        </div>
       </div>
       <div class="cat-info">
         <h3>{{ cat.name }}</h3>
@@ -89,19 +155,17 @@ CATEGORÍAS — Grid de colecciones
     </div>
   </div>
 </section>
-
-<!-- ══════════════════════════════════════════
-PRODUCTOS — Sección trending
-══════════════════════════════════════════ -->
 <section class="products">
   <div class="section-header">
-    <h2>TRENDING<span class="dot">.</span></h2>
-
+    <div class="section-title-group">
+      <p class="section-label">// LO MÁS VISTO</p>
+      <h2>TRENDING<span class="dot">.</span></h2>
+    </div>
     <div class="filter-tabs">
       <button
         *ngFor="let tab of filters"
         class="filter-btn"
-        [class.active]="activeFilter === tab" 
+        [class.active]="activeFilter === tab"
         (click)="setFilter(tab)">
         {{ tab }}
       </button>
@@ -111,13 +175,12 @@ PRODUCTOS — Sección trending
   <div class="products-grid">
     <div class="product-card" *ngFor="let product of filteredProducts">
       <div class="product-img">
-        <span class="product-emoji">{{ product.icon }}</span>
+        <img [src]="product.image" [alt]="product.name" class="product-photo" />
         <div class="product-overlay">
-          <button class="add-btn">+ AÑADIR</button>
+          <button class="add-btn">+ AÑADIR AL CARRITO</button>
         </div>
-        <span class="product-badge" *ngIf="product.badge">{{ product.badge }}</span>
+        <span class="product-badge" *ngIf="product.badge" [class]="'badge-' + product.badge.toLowerCase()">{{ product.badge }}</span>
       </div>
-
       <div class="product-info">
         <p class="product-brand">STREETWANE ®</p>
         <h4 class="product-name">{{ product.name }}</h4>
@@ -130,33 +193,26 @@ PRODUCTOS — Sección trending
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-DROP BANNER — Próxima colección
-══════════════════════════════════════════ -->
 <section class="drop-banner">
   <div class="drop-bg-text">DROP</div>
-
   <div class="drop-content">
     <p class="drop-label">⚡ PRÓXIMO DROP</p>
     <h2>COLECCIÓN<br><span>SHADOW</span><br>VERANO 2025</h2>
-
     <div class="countdown">
       <div class="count-item" *ngFor="let t of countdown">
         <span class="count-num">{{ t.value }}</span>
         <span class="count-label">{{ t.label }}</span>
       </div>
     </div>
-
     <a href="#" class="btn-primary">NOTIFÍCAME</a>
   </div>
-
   <div class="drop-visual">
-    <div class="drop-circle">
-      <span>SHADOW</span>
+    <div class="drop-img-container">
+      <img
+        src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80"
+        alt="Shadow Collection Preview"
+        class="drop-photo" />
+      <div class="drop-circle-overlay"></div>
     </div>
   </div>
 </section>
-
-<!-- ══════════════════════════════════════════
-FOOTER — Pie de página
-══════════════════════════════════════════ -->

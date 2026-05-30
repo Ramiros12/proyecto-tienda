@@ -1,16 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core'; // <-- Agregamos inject y OnInit
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { Firestore, doc, docData } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-nosotros-page',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule], 
   templateUrl: './nosotros-page.html',
   styleUrls: ['./nosotros-page.css']
 })
-export class NosotrosPage {
+export class NosotrosPage implements OnInit { 
   pageTitle: string = 'NOSOTROS';
-  prevRoute: string = '/nosotros'; // La página anterior en el ciclo
-  nextRoute: string = '/colecciones'; // La página siguiente
+  prevRoute: string = '/nosotros';
+  nextRoute: string = '/colecciones';
+
+  private route = inject(ActivatedRoute);
+  private firestore = inject(Firestore);
+
+  perfil$: Observable<any> | undefined;
+
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+
+    if (id) {
+      const documentoRef = doc(this.firestore, `equipo/${id}`);
+      
+      this.perfil$ = docData(documentoRef);
+    }
+  }
 }

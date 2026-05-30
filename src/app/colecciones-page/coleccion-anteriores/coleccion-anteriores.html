@@ -1,0 +1,75 @@
+<div class="anteriores-container">
+
+    <header class="detalle-header">
+      <button class="back-btn" routerLink="/colecciones">← VOLVER</button>
+      <div class="header-center">
+        <p class="header-tag">// ARCHIVO SS24</p>
+        <h1>COLECCIONES <span>ANTERIORES</span></h1>
+      </div>
+      <p class="header-count">4 DROPS</p>
+    </header>
+  
+    <div class="divider"></div>
+  
+    <!-- Carrusel -->
+    <section class="carrusel-section">
+      <button class="car-btn prev" (click)="anterior()">‹</button>
+  
+      <div class="carrusel-track">
+        <div class="carrusel-slide" *ngFor="let c of conjuntos" [class.activo]="c.id === slideActivo">
+          <img [src]="c.imagen" [alt]="c.nombre" class="car-img" />
+          <div class="car-overlay"></div>
+          <div class="car-content">
+            <p class="car-tag" [class]="'color-' + c.color">// {{ c.temporada }}</p>
+            <h2 class="car-titulo">{{ c.nombre }}</h2>
+            <p class="car-desc">{{ c.descripcion }}</p>
+          </div>
+        </div>
+      </div>
+  
+      <button class="car-btn next" (click)="siguiente()">›</button>
+  
+      <!-- Dots -->
+      <div class="car-dots">
+        <button
+          class="dot"
+          *ngFor="let c of conjuntos"
+          [class.activo]="c.id === slideActivo"
+          (click)="irA(c.id)">
+        </button>
+      </div>
+    </section>
+  
+    <div class="divider"></div>
+  
+    <!-- Cards de los 4 conjuntos -->
+    <section class="conjuntos-section">
+      <p class="section-label">// LOS CONJUNTOS</p>
+      <h2 class="section-titulo">LOOKS <span>COMPLETOS</span></h2>
+  
+      <div class="conjuntos-grid">
+        <div
+          class="conjunto-card"
+          *ngFor="let c of conjuntos"
+          [class.destacado]="c.id === slideActivo"
+          (click)="irA(c.id)">
+  
+          <div class="conjunto-img-wrap">
+            <img [src]="c.imagen" [alt]="c.nombre" class="conjunto-img" />
+            <div class="conjunto-overlay"></div>
+            <span class="conjunto-temporada" [class]="'color-' + c.color">{{ c.temporada }}</span>
+          </div>
+  
+          <div class="conjunto-info">
+            <h3 class="conjunto-nombre">{{ c.nombre }}</h3>
+            <ul class="conjunto-prendas">
+              <li *ngFor="let prenda of c.prendas">{{ prenda }}</li>
+            </ul>
+            <button class="ver-btn" (click)="irA(c.id)">VER LOOK →</button>
+          </div>
+  
+        </div>
+      </div>
+    </section>
+  
+  </div>

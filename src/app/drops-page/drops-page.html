@@ -1,63 +1,131 @@
 <div class="main-container">
-    <!-- Encabezado con navegación -->
-    <header class="page-header">
-        <!-- Flecha izquierda existente -->
-        <button class="nav-arrow" [routerLink]="prevRoute"> < </button> 
-      
-        <div class="logo-container">
-          <!-- Añadimos el routerLink aquí -->
-          <h2 class="brand-title clickable-logo" routerLink="/">
-            STREET<span>WANE</span>
-          </h2>
-          <p class="section-name">{{ pageTitle }}</p>
-        </div>
-      
-        <!-- Flecha derecha existente -->
-        <button class="nav-arrow" [routerLink]="nextRoute"> > </button>
-      </header>
-  
-    <div class="divider"></div>
-  
-    <p class="subtitle">Explora nuestra colección de ropa urbana</p>
-  
-    <!-- Grid de 4 columnas de la imagen -->
-    <section class="shop-grid">
-      
-      <!-- Categoría: Gorras -->
-      <div class="product-card">
-        <div class="image-box">
-          <img src="assets/gorras.jpg" alt="Gorras">
-        </div>
-        <h3 class="product-title yellow">GORRAS</h3>
-        <button class="btn-action">VER PRODUCTOS</button>
-      </div>
-  
-      <!-- Categoría: Hoodies -->
-      <div class="product-card">
-        <div class="image-box">
-          <img src="assets/hoodies.jpg" alt="Hoodies">
-        </div>
-        <h3 class="product-title cyan">HOODIES</h3>
-        <button class="btn-action">VER PRODUCTOS</button>
-      </div>
-  
-      <!-- Categoría: Camisetas -->
-      <div class="product-card">
-        <div class="image-box">
-          <img src="assets/camisetas.jpg" alt="Camisetas">
-        </div>
-        <h3 class="product-title white">CAMISETAS</h3>
-        <button class="btn-action">VER PRODUCTOS</button>
-      </div>
-  
-      <!-- Categoría: Pantalones -->
-      <div class="product-card">
-        <div class="image-box">
-          <img src="assets/pantalones.jpg" alt="Pantalones">
-        </div>
-        <h3 class="product-title orange">PANTALONES</h3>
-        <button class="btn-action">VER PRODUCTOS</button>
-      </div>
-  
-    </section>
+
+  <!-- Decoración de fondo -->
+  <div class="bg-deco">
+    <span class="deco-word w1">DROPS</span>
+    <span class="deco-word w2">SHOP</span>
+    <span class="deco-word w3">001</span>
+    <span class="deco-line l1"></span>
+    <span class="deco-line l2"></span>
+    <span class="deco-circle c1"></span>
+    <span class="deco-circle c2"></span>
   </div>
+
+  <header class="page-header">
+    <button class="nav-arrow" [routerLink]="prevRoute">
+      <span class="arrow-icon">‹</span>
+      <span class="arrow-label">Colecciones</span>
+    </button>
+    <div class="logo-container">
+      <h2 class="brand-title clickable-logo" routerLink="/">STREET<span>WANE</span></h2>
+      <p class="section-name">// {{ pageTitle }}</p>
+    </div>
+    <button class="nav-arrow right" [routerLink]="nextRoute">
+      <span class="arrow-label">Nosotros</span>
+      <span class="arrow-icon">›</span>
+    </button>
+  </header>
+
+  <div class="divider">
+    <span class="divider-tag">TEMPORADA SS25</span>
+  </div>
+
+  <div class="intro-row">
+    <p class="subtitle">Explora nuestra colección de ropa urbana</p>
+    <span class="intro-tag">4 CATEGORÍAS DISPONIBLES</span>
+  </div>
+
+  <section class="shop-grid">
+
+    <!-- Gorras -->
+    <div class="product-card" [routerLink]="['/drops', 'gorras']">
+      <div class="card-top-bar yellow-bar"></div>
+      <div class="image-box">
+        <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=600&q=80" alt="Gorras" />
+        <div class="img-overlay">
+          <span class="overlay-cta">VER →</span>
+        </div>
+        <span class="card-badge">12 items</span>
+      </div>
+      <div class="card-body">
+        <h3 class="product-title yellow">GORRAS</h3>
+        <p class="card-desc">Snapbacks, beanies y gorros con actitud urbana.</p>
+        <button class="btn-action" [routerLink]="['/drops', 'gorras']"
+          (click)="$event.stopPropagation()">
+          VER PRODUCTOS →
+        </button>
+      </div>
+    </div>
+
+    <!-- Hoodies -->
+    <div class="product-card" [routerLink]="['/drops', 'hoodies']">
+      <div class="card-top-bar cyan-bar"></div>
+      <div class="image-box">
+        <img src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=600&q=80" alt="Hoodies" />
+        <div class="img-overlay">
+          <span class="overlay-cta">VER →</span>
+        </div>
+        <span class="card-badge">8 items</span>
+      </div>
+      <div class="card-body">
+        <h3 class="product-title cyan">HOODIES</h3>
+        <p class="card-desc">Oversized, graphic y premium. El esencial de calle.</p>
+        <button class="btn-action" [routerLink]="['/drops', 'hoodies']"
+          (click)="$event.stopPropagation()">
+          VER PRODUCTOS →
+        </button>
+      </div>
+    </div>
+
+    <!-- Camisetas -->
+    <div class="product-card" [routerLink]="['/drops', 'camisetas']">
+      <div class="card-top-bar white-bar"></div>
+      <div class="image-box">
+        <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&q=80" alt="Camisetas" />
+        <div class="img-overlay">
+          <span class="overlay-cta">VER →</span>
+        </div>
+        <span class="card-badge">16 items</span>
+      </div>
+      <div class="card-body">
+        <h3 class="product-title white">CAMISETAS</h3>
+        <p class="card-desc">Tees con diseño propio. Streetwear colombiano puro.</p>
+        <button class="btn-action" [routerLink]="['/drops', 'camisetas']"
+          (click)="$event.stopPropagation()">
+          VER PRODUCTOS →
+        </button>
+      </div>
+    </div>
+
+    <!-- Pantalones -->
+    <div class="product-card" [routerLink]="['/drops', 'pantalones']">
+      <div class="card-top-bar orange-bar"></div>
+      <div class="image-box">
+        <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&q=80" alt="Pantalones" />
+        <div class="img-overlay">
+          <span class="overlay-cta">VER →</span>
+        </div>
+        <span class="card-badge">10 items</span>
+      </div>
+      <div class="card-body">
+        <h3 class="product-title orange">PANTALONES</h3>
+        <p class="card-desc">Cargos, baggy y joggers para dominar la calle.</p>
+        <button class="btn-action" [routerLink]="['/drops', 'pantalones']"
+          (click)="$event.stopPropagation()">
+          VER PRODUCTOS →
+        </button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Banner inferior -->
+  <div class="drop-footer-banner">
+    <div class="banner-left">
+      <span class="banner-tag">⚡ NUEVO DROP</span>
+      <p class="banner-titulo">DROP 001 — SS25 <span>YA DISPONIBLE</span></p>
+    </div>
+    <button class="btn-banner" routerLink="/">VER EN INICIO →</button>
+  </div>
+
+</div>

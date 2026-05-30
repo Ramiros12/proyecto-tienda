@@ -1,61 +1,133 @@
 <div class="main-container">
-    <!-- Encabezado -->
-    <header class="page-header">
-        <!-- Flecha izquierda existente -->
-        <button class="nav-arrow" [routerLink]="prevRoute"> < </button> 
-      
-        <div class="logo-container">
-          <!-- Añadimos el routerLink aquí -->
-          <h2 class="brand-title clickable-logo" routerLink="/">
-            STREET<span>WANE</span>
-          </h2>
-          <p class="section-name">{{ pageTitle }}</p>
-        </div>
-      
-        <!-- Flecha derecha existente -->
-        <button class="nav-arrow" [routerLink]="nextRoute"> > </button>
-      </header>
-  
-    <div class="divider"></div>
-  
-    <!-- Contenedor Principal de Lookbook -->
-    <main class="lookbook-container">
-      
-      <!-- Panel Izquierdo: Estilo Urbano -->
-      <article class="panel panel-dark">
-        <h3 class="panel-title cyan">ESTILO URBANO</h3>
-        <div class="image-placeholder main-img">
-          <!-- Aquí iría la imagen del modelo con la chaqueta verde -->
-          <img src="assets/estilo-urbano.jpg" alt="Estilo Urbano">
-        </div>
-        <p class="panel-description">
-          Explora la esencia de la calle con nuestra selección premium. 
-          Diseños pensados para quienes no piden permiso.
-        </p>
-        <button class="btn-yellow-glow">MÁS INFO</button>
-        <div class="arrow-indicator">∨</div>
-      </article>
-  
-      <!-- Panel Derecho: Colecciones Anteriores -->
-      <article class="panel panel-light">
-        <h3 class="panel-title yellow">COLECCIONES ANTERIOR</h3>
-        <p class="panel-description top-text">
-          Revive los drops que marcaron tendencia. Un repaso por la evolución 
-          constante de nuestra marca en la escena local.
-        </p>
-        <div class="image-placeholder sketch-img">
-          <!-- Aquí iría la imagen de los bocetos de moda -->
-          <img src="assets/sketches.jpg" alt="Bocetos">
-        </div>
-        <button class="btn-yellow-glow">MÁS INFO</button>
-      </article>
-  
-    </main>
-  
-    <!-- Botonera Inferior -->
-    <footer class="bottom-nav">
-      <button class="btn-footer yellow-bg">💡 IDEAS OUTFIT</button>
-      <button class="btn-footer dark-bg">🔍 EJEMPLOS</button>
-      <button class="btn-footer light-bg">🏢 LA ACTUALIDAD</button>
-    </footer>
+
+  <!-- Partículas decorativas de fondo -->
+  <div class="bg-deco">
+    <span class="deco-word w1">URBAN</span>
+    <span class="deco-word w2">STREET</span>
+    <span class="deco-word w3">DROP</span>
+    <span class="deco-word w4">SS25</span>
+    <span class="deco-line l1"></span>
+    <span class="deco-line l2"></span>
+    <span class="deco-circle c1"></span>
+    <span class="deco-circle c2"></span>
   </div>
+
+  <header class="page-header">
+    <button class="nav-arrow" [routerLink]="prevRoute">
+      <span class="arrow-icon">‹</span>
+      <span class="arrow-label">Nosotros</span>
+    </button>
+    <div class="logo-container">
+      <h2 class="brand-title clickable-logo" routerLink="/">STREET<span>WANE</span></h2>
+      <p class="section-name">// {{ pageTitle }}</p>
+    </div>
+    <button class="nav-arrow right" [routerLink]="nextRoute">
+      <span class="arrow-label">Drops</span>
+      <span class="arrow-icon">›</span>
+    </button>
+  </header>
+
+  <div class="divider">
+    <span class="divider-tag">LOOKBOOK 2025</span>
+  </div>
+
+  <main class="lookbook-container">
+
+    <!-- Panel Izquierdo -->
+    <article class="panel panel-dark" routerLink="/colecciones/estilo-urbano">
+      <div class="panel-badge cyan-badge">NUEVO</div>
+      <h3 class="panel-title cyan">ESTILO URBANO</h3>
+
+      <div class="image-placeholder main-img">
+        <img
+          src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80"
+          alt="Estilo Urbano" />
+        <div class="panel-img-overlay">
+          <span class="panel-tag">// SS25</span>
+          <p class="panel-img-texto">16 PRODUCTOS</p>
+        </div>
+        <div class="panel-hover-cta">VER COLECCIÓN →</div>
+      </div>
+
+      <p class="panel-description">
+        Explora la esencia de la calle con nuestra selección premium.
+        Diseños pensados para quienes no piden permiso.
+      </p>
+
+      <div class="panel-stats">
+        <div class="stat">
+          <span class="stat-num">16</span>
+          <span class="stat-label">PRODUCTOS</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">4</span>
+          <span class="stat-label">CATEGORÍAS</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num cyan">NEW</span>
+          <span class="stat-label">DROP</span>
+        </div>
+      </div>
+
+      <button class="btn-yellow-glow" routerLink="/colecciones/estilo-urbano"
+        (click)="$event.stopPropagation()">
+        MÁS INFO →
+      </button>
+    </article>
+
+    <!-- Panel Derecho -->
+    <article class="panel panel-light" routerLink="/colecciones/colecciones-anteriores">
+      <div class="panel-badge yellow-badge">ARCHIVO</div>
+      <h3 class="panel-title yellow">COLECCIONES ANTERIORES</h3>
+
+      <p class="panel-description top-text">
+        Revive los drops que marcaron tendencia. Un repaso por la evolución
+        constante de nuestra marca en la escena local.
+      </p>
+
+      <div class="image-placeholder sketch-img">
+        <img
+          src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=800&q=80"
+          alt="Colecciones Anteriores" />
+        <div class="panel-img-overlay">
+          <span class="panel-tag">// ARCHIVO 2024</span>
+          <p class="panel-img-texto">4 DROPS</p>
+        </div>
+        <div class="panel-hover-cta">VER ARCHIVO →</div>
+      </div>
+
+      <div class="drops-timeline">
+        <div class="timeline-item" *ngFor="let drop of drops">
+          <span class="timeline-dot" [style.background]="drop.color"></span>
+          <span class="timeline-nombre">{{ drop.nombre }}</span>
+          <span class="timeline-year">{{ drop.year }}</span>
+        </div>
+      </div>
+
+      <button class="btn-yellow-glow outline" routerLink="/colecciones/colecciones-anteriores"
+        (click)="$event.stopPropagation()">
+        MÁS INFO →
+      </button>
+    </article>
+
+  </main>
+
+  <!-- Botonera Inferior -->
+  <footer class="bottom-nav">
+    <button class="btn-footer yellow-bg" routerLink="/colecciones/estilo-urbano">
+      <span class="btn-icon">💡</span>
+      <span class="btn-text">IDEAS OUTFIT</span>
+    </button>
+    <button class="btn-footer dark-bg" routerLink="/colecciones/colecciones-anteriores">
+      <span class="btn-icon">🔍</span>
+      <span class="btn-text">EJEMPLOS</span>
+    </button>
+    <button class="btn-footer light-bg" routerLink="/">
+      <span class="btn-icon">🏠</span>
+      <span class="btn-text">LA ACTUALIDAD</span>
+    </button>
+  </footer>
+
+</div>

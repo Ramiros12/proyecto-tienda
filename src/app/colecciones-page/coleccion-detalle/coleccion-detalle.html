@@ -1,0 +1,38 @@
+<div class="detalle-container">
+
+    <header class="detalle-header">
+      <button class="back-btn" routerLink="/colecciones">← VOLVER</button>
+      <div class="header-center">
+        <p class="header-tag">// COLECCIÓN SS25</p>
+        <h1>ESTILO <span>URBANO</span></h1>
+      </div>
+      <p class="header-count">16 PRODUCTOS</p>
+    </header>
+  
+    <div class="divider"></div>
+  
+    <div class="categorias-grid">
+      <div class="categoria-col" *ngFor="let cat of categorias">
+  
+        <h2 class="cat-titulo" [class]="'color-' + cat.color">{{ cat.nombre }}</h2>
+  
+        <div class="cards-col">
+          <div class="prod-card" *ngFor="let prod of cat.productos">
+            <div class="prod-img-wrap">
+              <img [src]="prod.imagen" [alt]="prod.nombre" class="prod-img" />
+              <span class="prod-badge" *ngIf="prod.badge">{{ prod.badge }}</span>
+              <div class="prod-overlay">
+                <button class="add-cart-btn">+ CARRITO</button>
+              </div>
+            </div>
+            <div class="prod-info">
+              <p class="prod-nombre">{{ prod.nombre }}</p>
+              <p class="prod-precio">{{ prod.precio }}</p>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  
+  </div>

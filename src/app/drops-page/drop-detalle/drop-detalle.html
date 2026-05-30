@@ -1,0 +1,118 @@
+<div class="detalle-container">
+
+    <!-- Fondo decorativo -->
+    <div class="bg-deco">
+      <span class="deco-word">{{ tituloActual }}</span>
+      <span class="deco-circle c1"></span>
+      <span class="deco-circle c2"></span>
+      <span class="deco-line"></span>
+    </div>
+  
+    <!-- Header -->
+    <header class="detalle-header">
+      <button class="back-btn" routerLink="/drops">← VOLVER A DROPS</button>
+      <div class="header-center">
+        <p class="header-tag">// DROP 001 — SS25</p>
+        <h1 class="header-titulo" [style.color]="colorActual">{{ tituloActual }}</h1>
+        <p class="header-sub">{{ prendas.length }} MODELOS DISPONIBLES</p>
+      </div>
+      <div class="header-right">
+        <span class="drop-pill">⚡ EN STOCK</span>
+      </div>
+    </header>
+  
+    <div class="divider">
+      <span class="divider-tag">SELECCIONA TU PRENDA</span>
+    </div>
+  
+    <!-- Grid de prendas -->
+    <section class="prendas-grid">
+      <div class="prenda-card" *ngFor="let prenda of prendas; let i = index">
+  
+        <!-- Número de modelo -->
+        <div class="model-number">0{{ i + 1 }}</div>
+  
+        <!-- Imagen con overlay de specs al hover -->
+        <div class="prenda-img-wrap">
+          <img [src]="prenda.imagen" [alt]="prenda.nombre" class="prenda-img" />
+  
+          <!-- Badge -->
+          <span class="prenda-badge" [style.background]="colorActual">{{ prenda.badge }}</span>
+  
+          <!-- Overlay con características -->
+          <div class="specs-overlay">
+            <div class="specs-content">
+              <p class="specs-titulo">ESPECIFICACIONES</p>
+  
+              <div class="spec-row">
+                <span class="spec-label">MATERIAL</span>
+                <span class="spec-val">{{ prenda.material }}</span>
+              </div>
+  
+              <div class="spec-row">
+                <span class="spec-label">FIT</span>
+                <span class="spec-val">{{ prenda.fit }}</span>
+              </div>
+  
+              <div class="spec-row">
+                <span class="spec-label">GÉNERO</span>
+                <span class="spec-val">{{ prenda.genero }}</span>
+              </div>
+  
+              <div class="spec-row">
+                <span class="spec-label">TALLAS</span>
+                <div class="tallas-wrap">
+                  <span class="talla-chip" *ngFor="let t of prenda.tallas">{{ t }}</span>
+                </div>
+              </div>
+  
+              <div class="spec-row">
+                <span class="spec-label">COLORES</span>
+                <div class="colores-wrap">
+                  <span class="color-chip" *ngFor="let c of prenda.colores">{{ c }}</span>
+                </div>
+              </div>
+  
+              <p class="spec-desc">{{ prenda.descripcion }}</p>
+  
+              <button class="add-btn" [style.background]="colorActual">
+                + AÑADIR AL CARRITO
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Info inferior -->
+        <div class="prenda-info">
+          <div class="prenda-top-row">
+            <p class="prenda-brand">STREETWANE ®</p>
+            <span class="prenda-genero-tag">{{ prenda.genero }}</span>
+          </div>
+          <h3 class="prenda-nombre">{{ prenda.nombre }}</h3>
+          <div class="prenda-bottom-row">
+            <span class="prenda-precio" [style.color]="colorActual">{{ prenda.precio }}</span>
+            <div class="tallas-mini">
+              <span *ngFor="let t of prenda.tallas" class="talla-mini">{{ t }}</span>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </section>
+  
+    <!-- Footer de navegación entre categorías -->
+    <nav class="cat-nav">
+      <p class="cat-nav-label">// OTRAS CATEGORÍAS</p>
+      <div class="cat-nav-btns">
+        <button class="cat-btn" [class.active]="categoriaActual === 'gorras'"
+          routerLink="/drops/gorras">GORRAS</button>
+        <button class="cat-btn" [class.active]="categoriaActual === 'hoodies'"
+          routerLink="/drops/hoodies">HOODIES</button>
+        <button class="cat-btn" [class.active]="categoriaActual === 'camisetas'"
+          routerLink="/drops/camisetas">CAMISETAS</button>
+        <button class="cat-btn" [class.active]="categoriaActual === 'pantalones'"
+          routerLink="/drops/pantalones">PANTALONES</button>
+      </div>
+    </nav>
+  
+  </div>
