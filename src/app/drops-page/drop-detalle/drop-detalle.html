@@ -75,9 +75,11 @@
   
               <p class="spec-desc">{{ prenda.descripcion }}</p>
   
-              <button class="add-btn" [style.background]="colorActual">
-                + AÑADIR AL CARRITO
-              </button>
+              <button class="add-btn"
+  [style.background]="colorActual"
+  (click)="agregarAlCarrito(prenda); $event.stopPropagation()">
+  {{ agregado === prenda.nombre ? '✓ AGREGADO' : '+ AÑADIR AL CARRITO' }}
+</button>
             </div>
           </div>
         </div>

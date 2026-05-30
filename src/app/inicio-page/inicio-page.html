@@ -1,57 +1,155 @@
 <div class="main-container">
-    <!-- Encabezado con flechas de navegación -->
-    <header class="page-header">
-        <!-- Flecha izquierda existente -->
-        <button class="nav-arrow" [routerLink]="prevRoute"> < </button> 
-      
-        <div class="logo-container">
-          <!-- Añadimos el routerLink aquí -->
-          <h2 class="brand-title clickable-logo" routerLink="/">
-            STREET<span>WANE</span>
-          </h2>
-          <p class="section-name">{{ pageTitle }}</p>
-        </div>
-      
-        <!-- Flecha derecha existente -->
-        <button class="nav-arrow" [routerLink]="nextRoute"> > </button>
-      </header>
-  
-    <div class="divider"></div>
-  
-    <!-- Contenedor de las 4 tarjetas -->
-    <section class="cards-grid">
-      
-      <div class="card">
-        <div class="card-icon">⭐</div>
-        <h3 class="card-title yellow">DESTACADOS</h3>
-        <p class="card-text">Lo más llamativo y actual en la moda</p>
-        <button class="btn-more">MÁS INFO</button>
-        <div class="arrow-down">∨</div>
-      </div>
-  
-      <div class="card">
-        <div class="card-icon">👕</div>
-        <h3 class="card-title cyan">NUEVA COLECCIÓN</h3>
-        <p class="card-text">Conjuntos de ropa que te harán ver aun mejor que ahora</p>
-        <button class="btn-more">MÁS INFO</button>
-        <div class="arrow-down">∨</div>
-      </div>
-  
-      <div class="card">
-        <div class="card-icon">🛍️</div>
-        <h3 class="card-title orange">PROMOCIONES</h3>
-        <p class="card-text">La mejor ropa con las 3 B: <br> • Bueno • Bonito • Barato</p>
-        <button class="btn-more">MÁS INFO</button>
-        <div class="arrow-down">∨</div>
-      </div>
-  
-      <div class="card">
-        <div class="card-icon">🔔</div>
-        <h3 class="card-title blue">SUSCRIPCIÓN</h3>
-        <p class="card-text">Si quieres estar al tanto de este mundo suscríbete para que te lleguen mensajes</p>
-        <button class="btn-more">MÁS INFO</button>
-        <div class="arrow-down">∨</div>
-      </div>
-  
-    </section>
+
+  <!-- Fondo decorativo -->
+  <div class="bg-deco">
+    <span class="deco-word w1">INICIO</span>
+    <span class="deco-word w2">SS25</span>
+    <span class="deco-circle c1"></span>
+    <span class="deco-circle c2"></span>
+    <span class="deco-line l1"></span>
+    <span class="deco-line l2"></span>
   </div>
+
+  <!-- Header -->
+  <header class="page-header">
+    <button class="nav-arrow" [routerLink]="prevRoute">
+      <span class="arrow-icon">‹</span>
+      <span class="arrow-label">Nosotros</span>
+    </button>
+    <div class="logo-container">
+      <h2 class="brand-title clickable-logo" routerLink="/">STREET<span>WANE</span></h2>
+      <p class="section-name">// {{ pageTitle }}</p>
+    </div>
+    <button class="nav-arrow right" [routerLink]="nextRoute">
+      <span class="arrow-label">Colecciones</span>
+      <span class="arrow-icon">›</span>
+    </button>
+  </header>
+
+  <div class="divider">
+    <span class="divider-tag">TEMPORADA SS25</span>
+  </div>
+
+  <!-- Intro row -->
+  <div class="intro-row">
+    <div class="intro-left">
+      <p class="intro-tag">// BIENVENIDO A STREETWANE</p>
+      <h2 class="intro-titulo">LO MEJOR <span>ESTÁ AQUÍ</span></h2>
+    </div>
+    <p class="intro-desc">Explora todo lo que tenemos para ti esta temporada. Drops exclusivos, colecciones nuevas y mucho más.</p>
+  </div>
+
+  <!-- Cards -->
+  <section class="cards-grid">
+
+    <!-- Destacados -->
+    <div class="card" routerLink="/colecciones/estilo-urbano">
+      <div class="card-top-bar yellow-bar"></div>
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80" alt="Destacados" class="card-img" />
+        <div class="card-img-overlay"></div>
+        <span class="card-number">01</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon-wrap yellow-wrap">
+          <span class="card-icon">⭐</span>
+        </div>
+        <h3 class="card-title yellow">DESTACADOS</h3>
+        <p class="card-text">Lo más llamativo y actual en la moda urbana colombiana esta temporada.</p>
+        <div class="card-meta">
+          <span class="meta-tag">SS25</span>
+          <span class="meta-tag">16 items</span>
+        </div>
+        <button class="btn-more" routerLink="/colecciones/estilo-urbano"
+          (click)="$event.stopPropagation()">
+          VER AHORA →
+        </button>
+      </div>
+    </div>
+
+    <!-- Nueva Colección -->
+    <div class="card" routerLink="/colecciones">
+      <div class="card-top-bar cyan-bar"></div>
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=600&q=80" alt="Nueva Colección" class="card-img" />
+        <div class="card-img-overlay"></div>
+        <span class="card-number">02</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon-wrap cyan-wrap">
+          <span class="card-icon">👕</span>
+        </div>
+        <h3 class="card-title cyan">NUEVA COLECCIÓN</h3>
+        <p class="card-text">Conjuntos de ropa que te harán ver mejor que nunca. Estilo sin límites.</p>
+        <div class="card-meta">
+          <span class="meta-tag">DROP 001</span>
+          <span class="meta-tag">NUEVO</span>
+        </div>
+        <button class="btn-more" routerLink="/colecciones"
+          (click)="$event.stopPropagation()">
+          EXPLORAR →
+        </button>
+      </div>
+    </div>
+
+    <!-- Promociones -->
+    <div class="card" routerLink="/drops">
+      <div class="card-top-bar orange-bar"></div>
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=600&q=80" alt="Promociones" class="card-img" />
+        <div class="card-img-overlay"></div>
+        <span class="card-number">03</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon-wrap orange-wrap">
+          <span class="card-icon">🛍️</span>
+        </div>
+        <h3 class="card-title orange">PROMOCIONES</h3>
+        <p class="card-text">La mejor ropa con las 3B: Bueno, Bonito y Barato. Ofertas exclusivas.</p>
+        <div class="card-meta">
+          <span class="meta-tag">-20%</span>
+          <span class="meta-tag">LIMITADO</span>
+        </div>
+        <button class="btn-more" routerLink="/drops"
+          (click)="$event.stopPropagation()">
+          VER DROPS →
+        </button>
+      </div>
+    </div>
+
+    <!-- Suscripción -->
+    <div class="card card-suscripcion">
+      <div class="card-top-bar blue-bar"></div>
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1529720317453-c8da503f2051?w=600&q=80" alt="Suscripción" class="card-img" />
+        <div class="card-img-overlay"></div>
+        <span class="card-number">04</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon-wrap blue-wrap">
+          <span class="card-icon">🔔</span>
+        </div>
+        <h3 class="card-title blue">SUSCRIPCIÓN</h3>
+        <p class="card-text">Sé el primero en conocer los nuevos drops y colecciones exclusivas.</p>
+        <div class="suscripcion-input">
+          <input type="email" placeholder="tu@email.com" class="sub-input" />
+          <button class="sub-btn">✓</button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Banner inferior -->
+  <div class="bottom-banner">
+    <div class="banner-text">
+      <span class="banner-tag">⚡ DROP 001 DISPONIBLE</span>
+      <p class="banner-titulo">SHADOW COLLECTION <span>SS25</span></p>
+    </div>
+    <div class="banner-actions">
+      <button class="btn-banner-primary" routerLink="/drops">VER DROPS →</button>
+      <button class="btn-banner-ghost" routerLink="/nosotros">NUESTRA HISTORIA →</button>
+    </div>
+  </div>
+
+</div>

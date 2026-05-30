@@ -1,60 +1,156 @@
 <router-outlet></router-outlet>
 
 <footer class="main-footer">
-  <div class="footer-container">
+
+  <!-- Barra superior decorativa -->
+  <div class="footer-top-bar">
     
+    <span class="ftb-sep"> </span>
+    <span class="ftb-sep"> </span>
+    <span class="ftb-sep">★</span>
+    <span class="ftb-text">DROP 001 DISPONIBLE</span>
+    <span class="ftb-sep">★</span>
+    <span class="ftb-text">ENVÍO GRATIS +$150K</span>
+    <span class="ftb-sep">★</span>
+    <span class="ftb-text">CALIDAD PREMIUM</span>
+    <span class="ftb-sep">★</span>
+    <span class="ftb-text">EDICIÓN LIMITADA</span>
+    <span class="ftb-sep">★</span>
+    <span class="ftb-text">STREETWEAR COLOMBIANO</span>
+    <span class="ftb-sep">★</span>
+    <span class="ftb-text">DROP 001 DISPONIBLE</span>
+    <span class="ftb-sep">★</span>
+    <span class="ftb-text">ENVÍO GRATIS +$150K</span>
+    <span class="ftb-sep">★</span>
+    <span class="ftb-text">TIENDA VIRTUAL </span>
+    <span class="ftb-sep">★</span>
+    <span class="ftb-text">STREETWANE </span>
+    <span class="ftb-sep">★</span>
+  </div>
+
+  <div class="footer-main">
+
     <!-- Columna 1: Identidad -->
-    <div class="footer-column brand-info">
+    <div class="footer-column brand-col">
       <h3 class="footer-logo">STREET<span>WANE</span></h3>
+      <p class="brand-tagline">// EST. 2024 — BOGOTÁ, COL 🇨🇴</p>
       <p class="brand-description">
-        Inspirados en el arte callejero y la libertad de expresión. 
+        Inspirados en el arte callejero y la libertad de expresión.
         Creamos prendas con actitud para quienes viven la ciudad al máximo.
       </p>
+      <div class="brand-address">
+        <p class="address-label">// TIENDA FÍSICA</p>
+        <p class="address-text">Cra. 00 #00-00, Bogotá </p>
+        <p class="address-text">Bogotá D.C., Colombia</p>
+        <p class="address-text">Lun–Sáb: 10am – 8pm</p>
+      </div>
       <div class="social-links">
-        <a href="#" class="social-btn">IG</a>
-        <a href="#" class="social-btn">TK</a>
-        <a href="#" class="social-btn">WS</a>
+        <a href="https://instagram.com/streetwane.col" target="_blank" class="social-btn ig-btn">
+          <span class="social-icon">📸</span>
+          <span>IG</span>
+        </a>
+        <a href="https://tiktok.com/@streetwane.col" target="_blank" class="social-btn tk-btn">
+          <span class="social-icon">🎵</span>
+          <span>TK</span>
+        </a>
+        <a href="https://wa.me/573001234567" target="_blank" class="social-btn ws-btn">
+          <span class="social-icon">💬</span>
+          <span>WS</span>
+        </a>
       </div>
     </div>
 
-    <!-- Columna 2: Mapa del Sitio -->
+    <!-- Columna 2: Explorar -->
     <div class="footer-column">
       <h4 class="column-title">EXPLORAR</h4>
       <nav class="footer-nav">
-        <a routerLink="/inicio">Inicio</a>
-        <a routerLink="/colecciones">Lookbook Urbano</a>
-        <a routerLink="/drops">Tienda Drops</a>
-        <a routerLink="/nosotros">Nuestra Historia</a>
+        <a routerLink="/">
+          <span class="nav-arrow">→</span> Inicio
+        </a>
+        <a routerLink="/colecciones">
+          <span class="nav-arrow">→</span> Lookbook Urbano
+        </a>
+        <a routerLink="/drops">
+          <span class="nav-arrow">→</span> Tienda Drops
+        </a>
+        <a routerLink="/nosotros">
+          <span class="nav-arrow">→</span> Nuestra Historia
+        </a>
+        <a routerLink="/colecciones/estilo-urbano">
+          <span class="nav-arrow">→</span> Estilo Urbano
+        </a>
+        <a routerLink="/colecciones/colecciones-anteriores">
+          <span class="nav-arrow">→</span> Colecciones Anteriores
+        </a>
       </nav>
     </div>
 
-    <!-- Columna 3: Soporte y Legal -->
+    <!-- Columna 3: Soporte -->
     <div class="footer-column">
       <h4 class="column-title">SOPORTE</h4>
       <nav class="footer-nav">
-        <a href="#">Guía de Tallas</a>
-        <a href="#">Envíos y Devoluciones</a>
-        <a href="#">Términos y Condiciones</a>
-        <a href="#">Privacidad</a>
+        <a href="#">
+          <span class="nav-arrow">→</span> Guía de Tallas
+        </a>
+        <a href="#">
+          <span class="nav-arrow">→</span> Envíos y Devoluciones
+        </a>
+        <a href="#">
+          <span class="nav-arrow">→</span> Términos y Condiciones
+        </a>
+        <a href="#">
+          <span class="nav-arrow">→</span> Privacidad
+        </a>
+        <a href="#">
+          <span class="nav-arrow">→</span> Preguntas Frecuentes
+        </a>
       </nav>
+
+      <h4 class="column-title" style="margin-top: 28px;">CONTACTO</h4>
+      <div class="contact-info-list">
+        <p class="contact-info-item">
+          <span class="ci-label">EMAIL</span>
+          <span class="ci-val">hola&#64;streetwane.co</span>
+        </p>
+        <p class="contact-info-item">
+          <span class="ci-label">TEL</span>
+          <span class="ci-val">+57 300 000 0000 </span>
+        </p>
+        <p class="contact-info-item">
+          <span class="ci-label">WS</span>
+          <span class="ci-val">&#64;streetwane.col</span>
+        </p>
+      </div>
     </div>
 
-    <!-- Columna 4: Suscripción -->
+    <!-- Columna 4: Newsletter + Drop -->
     <div class="footer-column">
       <h4 class="column-title">MANTENTE AL TANTO</h4>
-      <p class="small-text">Recibe notificaciones de los próximos drops exclusivos.</p>
+      <p class="small-text">Sé el primero en enterarte de los próximos drops exclusivos y promociones.</p>
       <div class="newsletter-box">
-        <input type="email" placeholder="Tu email...">
-        <button class="btn-send">✓</button>
+        <input type="email" placeholder="tu&#64;email.com" />
+        <button class="btn-send">→</button>
+      </div>
+
+      <div class="next-drop-box">
+        <p class="drop-box-label">⚡ PRÓXIMO DROP</p>
+        <p class="drop-box-titulo">DROP 002<br><span>FUEGO SS25</span></p>
+        <p class="drop-box-date">Disponible pronto</p>
       </div>
     </div>
 
   </div>
 
+  <!-- Créditos -->
   <div class="footer-credits">
-    <div class="credits-content">
-      <p>&copy; 2026 StreetWane Clothing.</p>
-      <p class="university-info">Fundación Universitaria Compensar | Proyecto de Investigación.</p>
+    <div class="credits-left">
+      <p>© 2026 StreetWane Clothing. Todos los derechos reservados.</p>
+      <p class="university-info">Fundación Universitaria Compensar | Proyecto de Investigación</p>
+    </div>
+    <div class="credits-right">
+      <span class="credit-tag">MADE IN 🇨🇴</span>
+      <span class="credit-tag">SS25</span>
     </div>
   </div>
+
 </footer>

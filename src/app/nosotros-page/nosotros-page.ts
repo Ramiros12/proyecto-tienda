@@ -1,33 +1,30 @@
-import { Component, inject, OnInit } from '@angular/core'; // <-- Agregamos inject y OnInit
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterModule } from '@angular/router';
-import { Firestore, doc, docData } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-nosotros-page',
   standalone: true,
-  imports: [CommonModule, RouterModule], 
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './nosotros-page.html',
   styleUrls: ['./nosotros-page.css']
 })
-export class NosotrosPage implements OnInit { 
+export class NosotrosPage {
   pageTitle: string = 'NOSOTROS';
-  prevRoute: string = '/nosotros';
+  prevRoute: string = '/drops';
   nextRoute: string = '/colecciones';
 
-  private route = inject(ActivatedRoute);
-  private firestore = inject(Firestore);
+  comentario = { nombre: '', email: '', mensaje: '' };
+  enviado = false;
 
-  perfil$: Observable<any> | undefined;
-
-  ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-
-    if (id) {
-      const documentoRef = doc(this.firestore, `equipo/${id}`);
-      
-      this.perfil$ = docData(documentoRef);
+  enviarComentario() {
+    if (this.comentario.nombre && this.comentario.mensaje) {
+      this.enviado = true;
+      setTimeout(() => {
+        this.enviado = false;
+        this.comentario = { nombre: '', email: '', mensaje: '' };
+      }, 3000);
     }
   }
 }

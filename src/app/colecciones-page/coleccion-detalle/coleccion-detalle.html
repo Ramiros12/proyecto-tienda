@@ -22,7 +22,9 @@
               <img [src]="prod.imagen" [alt]="prod.nombre" class="prod-img" />
               <span class="prod-badge" *ngIf="prod.badge">{{ prod.badge }}</span>
               <div class="prod-overlay">
-                <button class="add-cart-btn">+ CARRITO</button>
+                <button class="add-cart-btn" (click)="agregarAlCarrito(prod); $event.stopPropagation()">
+                  {{ agregado === prod.nombre ? '✓ AGREGADO' : '+ CARRITO' }}
+                </button>
               </div>
             </div>
             <div class="prod-info">

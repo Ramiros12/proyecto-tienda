@@ -15,5 +15,5 @@ export const routes: Routes = [
   { path: 'colecciones/colecciones-anteriores', component: ColeccionAnterioresComponent },
   { path: 'drops', component: DropsPage },
   { path: 'drops/:id', component: DropDetalleComponent },
-  { path: 'nosotros/:id', component: NosotrosPage }
+  { path: 'nosotros', component: NosotrosPage } 
 ];

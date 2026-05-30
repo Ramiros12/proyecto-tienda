@@ -1,17 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { DropDetalleComponent } from './drop-detalle';
+import { provideRouter } from '@angular/router';
+import { routes } from '../../app.routes';
 
-import { DropDetalle } from './drop-detalle';
-
-describe('DropDetalle', () => {
-  let component: DropDetalle;
-  let fixture: ComponentFixture<DropDetalle>;
+describe('DropDetalleComponent', () => {
+  let component: DropDetalleComponent;
+  let fixture: ComponentFixture<DropDetalleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DropDetalle],
+      imports: [DropDetalleComponent],
+      providers: [provideRouter(routes)]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DropDetalle);
+    fixture = TestBed.createComponent(DropDetalleComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

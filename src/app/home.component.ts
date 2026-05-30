@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core'; 
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CarritoService } from './services/carrito.service';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +10,28 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit, OnDestroy {
 
+  constructor(public carritoService: CarritoService) {}
+
+  get totalCarrito() {
+    return this.carritoService.cantidadTotal();
+    
+  }
+  agregado: string = '';
+
+  agregarAlCarrito(product: any) {
+    this.carritoService.agregar({
+      nombre: product.name,
+      precio: product.price,
+      imagen: product.image,
+      categoria: product.category,
+      cantidad: 1
+    });
+    this.agregado = product.name;
+    setTimeout(() => this.agregado = '', 2000);
+  }
   // CARRUSEL
   currentSlide: number = 0;
   totalSlides: number = 3;

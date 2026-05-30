@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, ActivatedRoute } from '@angular/router';
+import { CarritoService, ProductoCarrito } from '../../services/carrito.service';
 
 interface Prenda {
   nombre: string;
@@ -34,6 +35,19 @@ export class DropDetalleComponent implements OnInit {
   categoriaActual: string = '';
   tituloActual: string = '';
   colorActual: string = '#fbff00';
+  prendas: Prenda[] = [];
+  agregado: string = ''; // nombre del último producto agregado
+
+  // inyectamos el servicio
+  constructor(
+    private route: ActivatedRoute,
+    private carritoService: CarritoService
+  ) {}
+
+  // getter para mostrar el contador en el template
+  get totalCarrito() {
+    return this.carritoService.cantidadTotal();
+  }
 
   categorias: Record<string, Categoria> = {
     gorras: {
@@ -63,7 +77,7 @@ export class DropDetalleComponent implements OnInit {
           colores: ['Negro/Negro', 'Negro/Gris', 'Caqui/Beige'],
           genero: 'Unisex',
           fit: 'Ajustable — cierre snapback plástico',
-          descripcion: 'Panel frontal bordado, malla trasera transpirable, visera curva preformada.'
+          descripcion: 'Panel frontal bordado, malla trasera transpirable.'
         }
       ]
     },
@@ -82,7 +96,7 @@ export class DropDetalleComponent implements OnInit {
           colores: ['Negro Carbón', 'Gris Oscuro'],
           genero: 'Masculino / Unisex',
           fit: 'Oversized — hombros caídos',
-          descripcion: 'Capucha doble capa, bolsillo canguro, costuras reforzadas, graphic print en espalda.'
+          descripcion: 'Capucha doble capa, bolsillo canguro, graphic print en espalda.'
         },
         {
           nombre: 'Zip-Up Shadow Hoodie',
@@ -94,7 +108,7 @@ export class DropDetalleComponent implements OnInit {
           colores: ['Negro', 'Verde Militar', 'Crema'],
           genero: 'Masculino / Femenino',
           fit: 'Regular — cierre frontal YKK',
-          descripcion: 'Cremallera metálica YKK, bolsillos laterales con cierre, logo bordado en pecho.'
+          descripcion: 'Cremallera metálica YKK, bolsillos laterales con cierre.'
         }
       ]
     },
@@ -113,7 +127,7 @@ export class DropDetalleComponent implements OnInit {
           colores: ['Blanco', 'Negro', 'Beige'],
           genero: 'Unisex',
           fit: 'Oversize — largo extendido',
-          descripcion: 'Gráfico serigrafía al frente, cuello redondo reforzado, doble costura en dobladillo.'
+          descripcion: 'Gráfico serigrafía al frente, cuello redondo reforzado.'
         },
         {
           nombre: 'Tee Urban Basic Washed',
@@ -125,7 +139,7 @@ export class DropDetalleComponent implements OnInit {
           colores: ['Negro Washed', 'Gris Washed', 'Azul Oscuro'],
           genero: 'Masculino / Femenino',
           fit: 'Regular — corte recto',
-          descripcion: 'Tratamiento washed para look desgastado, etiqueta bordada lateral SW.'
+          descripcion: 'Tratamiento washed para look desgastado, etiqueta bordada SW.'
         }
       ]
     },
@@ -144,7 +158,7 @@ export class DropDetalleComponent implements OnInit {
           colores: ['Negro', 'Caqui', 'Verde Cargo'],
           genero: 'Masculino',
           fit: 'Baggy — cadera baja',
-          descripcion: '6 bolsillos funcionales, cinturilla elástica trasera, ojales metálicos y parche SW.'
+          descripcion: '6 bolsillos funcionales, cinturilla elástica trasera.'
         },
         {
           nombre: 'Jogger Urban Premium',
@@ -156,15 +170,11 @@ export class DropDetalleComponent implements OnInit {
           colores: ['Negro', 'Gris Melange', 'Beige'],
           genero: 'Unisex',
           fit: 'Tapered — tobillo ajustado',
-          descripcion: 'Cinturilla con cordón plano, bolsillos laterales profundos, puño en tobillo.'
+          descripcion: 'Cinturilla con cordón plano, bolsillos laterales profundos.'
         }
       ]
     }
   };
-
-  prendas: Prenda[] = [];
-
-  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -176,5 +186,18 @@ export class DropDetalleComponent implements OnInit {
         this.prendas = cat.prendas;
       }
     });
+  }
+
+  agregarAlCarrito(prenda: Prenda) {
+    const producto: ProductoCarrito = {
+      nombre: prenda.nombre,
+      precio: prenda.precio,
+      imagen: prenda.imagen,
+      categoria: this.tituloActual,
+      cantidad: 1
+    };
+    this.carritoService.agregar(producto);
+    this.agregado = prenda.nombre;
+    setTimeout(() => this.agregado = '', 2000);
   }
 }

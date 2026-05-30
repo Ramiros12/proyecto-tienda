@@ -1,81 +1,184 @@
 <div class="main-container">
-    <!-- Encabezado con navegación circular -->
-    <header class="page-header">
-        <!-- Flecha izquierda existente -->
-        <button class="nav-arrow" [routerLink]="prevRoute"> < </button> 
-      
-        <div class="logo-container">
-          <!-- Añadimos el routerLink aquí -->
-          <h2 class="brand-title clickable-logo" routerLink="/">
-            STREET<span>WANE</span>
-          </h2>
-          <p class="section-name">{{ pageTitle }}</p>
-        </div>
-      
-        <!-- Flecha derecha existente -->
-        <button class="nav-arrow" [routerLink]="nextRoute"> > </button>
-      </header>
-  
-    <div class="divider"></div>
-  
-    <!-- Contenido Principal -->
-    <div class="main-layout">
-      
-      <!-- Sección de Identidad e Historia -->
-      <section class="story-section">
-        <div class="brand-intro">
-          <div class="profile-pic">
-             <img src="assets/avatar-urban.jpg" alt="StreetWane Character">
-          </div>
-          <div class="intro-text">
-            <h3 class="yellow">StreetWane Clothing</h3>
-            <p>Marca de ropa urbana inspirada en la cultura street colombiana.</p>
-            <p>Diseños modernos, cómodos y con identidad propia.</p>
-            <p>Transmitimos energía, movimiento y estilo juvenil.</p>
-          </div>
-        </div>
-  
-        <div class="history-card">
-          <h3 class="yellow">NUESTRA HISTORIA</h3>
-          <p>StreetWane Clothing nace como una marca inspirada en la cultura urbana, el arte callejero y la libertad de expresión.</p>
-          <p>Nuestro objetivo es ofrecer prendas que representen actitud, estilo y autenticidad en cada drop.</p>
-          <button class="btn-yellow-glow">MÁS INFO</button>
-        </div>
-      </section>
-  
-      <!-- Barra Lateral de Contacto -->
-      <aside class="contact-sidebar">
-        <div class="contact-header">CONTACTO</div>
-        <div class="contact-methods">
-          <div class="method"><span class="icon">💬</span> WhatsApp</div>
-          <div class="method"><span class="icon">📸</span> Instagram</div>
-          <div class="method"><span class="icon">📝</span> Formulario</div>
-        </div>
-      </aside>
-    </div>
-  
-    <!-- Fila Inferior de Valores -->
-    <footer class="values-grid">
-      <div class="value-item">
-        <div class="value-icon">🎯</div>
-        <div>
-          <h4 class="yellow">MISIÓN</h4>
-          <p>Crear ropa urbana moderna que combine comodidad e identidad.</p>
-        </div>
-      </div>
-      <div class="value-item">
-        <div class="value-icon">👁️</div>
-        <div>
-          <h4 class="cyan">VISIÓN</h4>
-          <p>Convertirnos en una marca referente en la moda urbana juvenil.</p>
-        </div>
-      </div>
-      <div class="value-item">
-        <div class="value-icon">🎨</div>
-        <div>
-          <h4 class="orange">ESTILO</h4>
-          <p>Diseños inspirados en graffiti, cultura skate y moda callejera.</p>
-        </div>
-      </div>
-    </footer>
+
+  <!-- Fondo decorativo -->
+  <div class="bg-deco">
+    <span class="deco-word w1">STREET</span>
+    <span class="deco-word w2">WANE</span>
+    <span class="deco-circle c1"></span>
+    <span class="deco-circle c2"></span>
+    <span class="deco-line l1"></span>
   </div>
+
+  <!-- Header -->
+  <header class="page-header">
+    <button class="nav-arrow" [routerLink]="prevRoute">
+      <span class="arrow-icon">‹</span>
+      <span class="arrow-label">Drops</span>
+    </button>
+    <div class="logo-container">
+      <h2 class="brand-title clickable-logo" routerLink="/">STREET<span>WANE</span></h2>
+      <p class="section-name">// {{ pageTitle }}</p>
+    </div>
+    <button class="nav-arrow right" [routerLink]="nextRoute">
+      <span class="arrow-label">Colecciones</span>
+      <span class="arrow-icon">›</span>
+    </button>
+  </header>
+
+  <div class="divider">
+    <span class="divider-tag">EST. 2024 — COLOMBIA 🇨🇴</span>
+  </div>
+
+  <!-- Hero de marca -->
+  <section class="brand-hero">
+    <div class="hero-img-wrap">
+      <img
+        src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80"
+        alt="StreetWane" class="hero-img" />
+      <div class="hero-img-overlay">
+        <span class="hero-tag">// DESDE COLOMBIA</span>
+        <h2 class="hero-nombre">STREET<span>WANE</span></h2>
+        <p class="hero-sub">Ropa urbana con actitud.</p>
+      </div>
+    </div>
+    <div class="hero-texto">
+      <p class="hero-label">// NUESTRA HISTORIA</p>
+      <h2 class="hero-titulo">SOMOS LA <span>CALLE</span></h2>
+      <p class="hero-desc">
+        StreetWane Clothing nace como una marca inspirada en la cultura urbana,
+        el arte callejero y la libertad de expresión colombiana.
+      </p>
+      <p class="hero-desc">
+        Nuestro objetivo es ofrecer prendas que representen actitud, estilo
+        y autenticidad en cada drop. Diseños modernos, cómodos y con identidad propia.
+      </p>
+      <div class="hero-stats">
+        <div class="hstat">
+          <span class="hstat-num yellow">4</span>
+          <span class="hstat-label">DROPS</span>
+        </div>
+        <div class="hstat-div"></div>
+        <div class="hstat">
+          <span class="hstat-num cyan">2024</span>
+          <span class="hstat-label">FUNDACIÓN</span>
+        </div>
+        <div class="hstat-div"></div>
+        <div class="hstat">
+          <span class="hstat-num orange">100%</span>
+          <span class="hstat-label">COLOMBIANO</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valores -->
+  <section class="values-section">
+    <p class="section-label">// ADN DE MARCA</p>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon-wrap yellow-border">
+          <span class="value-icon">🎯</span>
+        </div>
+        <h4 class="yellow">MISIÓN</h4>
+        <p>Crear ropa urbana moderna que combine comodidad, identidad y actitud callejera en cada prenda.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon-wrap cyan-border">
+          <span class="value-icon">👁️</span>
+        </div>
+        <h4 class="cyan">VISIÓN</h4>
+        <p>Convertirnos en la marca referente de moda urbana juvenil en Colombia y Latinoamérica.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon-wrap orange-border">
+          <span class="value-icon">🎨</span>
+        </div>
+        <h4 class="orange">ESTILO</h4>
+        <p>Diseños inspirados en graffiti, cultura skate, hip-hop y la moda callejera colombiana.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto + Formulario -->
+  <section class="bottom-section">
+
+    <!-- Contacto -->
+    <div class="contact-block">
+      <p class="section-label">// ENCUÉNTRANOS</p>
+      <h3 class="block-titulo">CONTACTO<span class="dot">.</span></h3>
+
+      <div class="contact-list">
+        <a class="contact-item" href="https://instagram.com/streetwane.col" target="_blank">
+          <div class="contact-icon ig-icon">📸</div>
+          <div class="contact-info">
+            <span class="contact-red">INSTAGRAM</span>
+            <span class="contact-handle">@streetwane.col</span>
+          </div>
+          <span class="contact-arrow">→</span>
+        </a>
+
+        <a class="contact-item" href="https://wa.me/573001234567" target="_blank">
+          <div class="contact-icon wa-icon">💬</div>
+          <div class="contact-info">
+            <span class="contact-red">WHATSAPP</span>
+            <span class="contact-handle">+57 300 000 0000</span>
+          </div>
+          <span class="contact-arrow">→</span>
+        </a>
+
+        <a class="contact-item" href="https://tiktok.com/@streetwane.col" target="_blank">
+          <div class="contact-icon tk-icon">🎵</div>
+          <div class="contact-info">
+            <span class="contact-red">TIKTOK</span>
+            <span class="contact-handle">@streetwane.col</span>
+          </div>
+          <span class="contact-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Formulario -->
+    <div class="form-block">
+      <p class="section-label">// TU OPINIÓN IMPORTA</p>
+      <h3 class="block-titulo">DÉJANOS TU <span>COMENTARIO</span></h3>
+
+      <div class="form-success" *ngIf="enviado">
+        <span>✓ ¡Mensaje enviado! Gracias por escribirnos.</span>
+      </div>
+
+      <div class="form-fields" *ngIf="!enviado">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">NOMBRE</label>
+            <input
+              class="field-input"
+              type="text"
+              placeholder="Tu nombre..."
+              [(ngModel)]="comentario.nombre" />
+          </div>
+          <div class="field-group">
+            <label class="field-label">EMAIL</label>
+            <input
+              class="field-input"
+              type="email"
+              placeholder="tu@email.com"
+              [(ngModel)]="comentario.email" />
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">MENSAJE</label>
+          <textarea
+            class="field-input field-textarea"
+            placeholder="Escribe tu comentario aquí..."
+            [(ngModel)]="comentario.mensaje">
+          </textarea>
+        </div>
+        <button class="btn-enviar" (click)="enviarComentario()">
+          ENVIAR MENSAJE →
+        </button>
+      </div>
+    </div>
+
+  </section>
+
+</div>

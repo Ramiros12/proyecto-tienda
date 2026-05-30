@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { CarritoService } from '../../services/carrito.service';
 
 @Component({
   selector: 'app-coleccion-detalle',
@@ -10,6 +11,26 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./coleccion-detalle.css']
 })
 export class ColeccionDetalleComponent {
+
+  agregado: string = '';
+
+  constructor(private carritoService: CarritoService) {}
+
+  get totalCarrito() {
+    return this.carritoService.cantidadTotal();
+  }
+
+  agregarAlCarrito(prod: any) {
+    this.carritoService.agregar({
+      nombre: prod.nombre,
+      precio: prod.precio,
+      imagen: prod.imagen,
+      categoria: 'Estilo Urbano',
+      cantidad: 1
+    });
+    this.agregado = prod.nombre;
+    setTimeout(() => this.agregado = '', 2000);
+  }
 
   categorias = [
     {
